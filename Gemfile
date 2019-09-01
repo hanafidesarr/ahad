@@ -16,6 +16,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+gem 'haml-rails', '~> 2.0'
+
 gem 'spree', '~> 3.7.0'
 gem 'spree_auth_devise', '~> 3.5'
 gem 'spree_gateway', '~> 3.4'
