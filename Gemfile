@@ -24,6 +24,8 @@ gem 'spree_gateway', '~> 3.4'
 
 gem 'spree_static_content', github: 'spree-contrib/spree_static_content'
 
+gem 'spree_slider', github: 'spree-contrib/spree_slider'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
