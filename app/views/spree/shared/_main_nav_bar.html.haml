@@ -1,52 +1,54 @@
-%nav.col-md-12
-  #main-nav-bar.navbar
-    %ul.nav.navbar-nav{"data-hook" => ""}
-      %li#home-link{"data-hook" => ""}= link_to Spree.t(:home), spree.root_path
-    %ul.nav.navbar-nav.navbar-right{"data-hook" => ""}
-      %li#link-to-cart{"data-hook" => ""}
-        %noscript
-          = link_to_cart
-    %ul.nav.navbar-nav.navbar-right
-      %li
-        %a.w3-button{style: "cursor:pointer;", "target" => "_blank","data-message" => "Hi! adakah yang bisa kami bantu?", "data-number" => "+6281222194150"}
-          ="WhatApp"
-      :javascript
-        Spree.fetch_cart()
+.row
+  .col-md-3.text-left
+    %figure#logo.col-md-12
+      = image_tag image_path("ahadin.jpeg")
+  %nav.col-md-9.custom-nav{ style: "padding:0;"}
+    #main-nav-bar.navbar
+      %ul.nav.navbar-nav{"data-hook" => "", style: "display: flex;"}
+        %li#home-link{"data-hook" => ""}= link_to Spree.t(:home), spree.root_path
+      %ul.nav.navbar-nav.navbar-right{ style: "margin-right: 16px;"}
+        -# %li.lalala
+        -#   %a.w3-button{style: "cursor:pointer;", "target" => "_blank","data-message" => "Hi! adakah yang bisa kami bantu?", "data-number" => "+6281222194150"}
+        -#   .name= "Silahkan hubungi kami"
+        %li
+          %a.bouton-image.monBouton.w3-button{style: "cursor:pointer;", "target" => "_blank","data-message" => "Hi! adakah yang bisa kami bantu?", "data-number" => "+6281222194150"}= "Hubungi kami"
+        :javascript
+          Spree.fetch_cart()
 
-        var isMobile = {
-          Android: function() {
-          return navigator.userAgent.match(/Android/i);
-          },
-          BlackBerry: function() {
-          return navigator.userAgent.match(/BlackBerry/i);
-          },
-          iOS: function() {
-          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-          },
-          Opera: function() {
-          return navigator.userAgent.match(/Opera Mini/i);
-          },
-          Windows: function() {
-          return navigator.userAgent.match(/IEMobile/i);
-          },
-          any: function() {
-          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-          }
-        };
-        $(".w3-button").on("click", function()
-          {
-            
-          var text = $(this).attr("data-message");
-          var phone = $(this).attr("data-number");
-          var message = encodeURIComponent(text);
+          var isMobile = {
+            Android: function() {
+            return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function() {
+            return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+            return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+          };
+          $(".w3-button").on("click", function()
+            {
+              
+            var text = $(this).attr("data-message");
+            var phone = $(this).attr("data-number");
+            var message = encodeURIComponent(text);
 
-          if( isMobile.any() ) {
-          //mobile device
-          var whatsapp_API_url = "whatsapp://send";
-          $(this).attr( 'href', whatsapp_API_url+'?phone=' + phone + '&text=' + message );
-          } else {
-          //desktop
-          var whatsapp_API_url = "https://web.whatsapp.com/send";
-          $(this).attr( 'href', whatsapp_API_url+'?phone=' + phone + '&text=' + message );
-          }
-          });
+            if( isMobile.any() ) {
+            //mobile device
+            var whatsapp_API_url = "whatsapp://send";
+            $(this).attr( 'href', whatsapp_API_url+'?phone=' + phone + '&text=' + message );
+            } else {
+            //desktop
+            var whatsapp_API_url = "https://web.whatsapp.com/send";
+            $(this).attr( 'href', whatsapp_API_url+'?phone=' + phone + '&text=' + message );
+            }
+            });

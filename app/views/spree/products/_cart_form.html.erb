@@ -31,9 +31,11 @@
     <% end %>
 
     <% if @product.price_in(current_currency) && !@product.price.nil? %>
-      <div data-hook="product_price" class="col-md-5">
+
+      <div data-hook="product_price" class="col-md-7">
+        
         <div id="product-price">
-          <h6 class="product-section-title"><%= Spree.t(:price) %></h6>
+          <!-- <h6 class="product-section-title"><%= Spree.t(:price) %></h6> -->
           <div>
             <span class="lead price selling" itemprop="price" content="<%= @product.price_in(current_currency).amount.to_d %>">
               <%= display_price(@product) %>
@@ -53,7 +55,8 @@
             </div>
           <% end %>
         </div>
-
+        
+        <!--
         <% if @product.can_supply? %>
           <div class="add-to-cart">
             <br />
@@ -67,7 +70,14 @@
             </div>
           </div>
         <% end %>
+        -->
       </div>
+
+      <div class="col-md-5">
+        <a class="btn btn-default bouton-image monBouton w3-button" style="width:100%; cursor:pointer;" target="_blank" data-message="Hi! adakah yang bisa kami bantu?" data-number = "+6281222194150" > Hubungi kami </a>
+
+      </div>
+
     <% else %>
       <div id="product-price">
         <br />
@@ -79,4 +89,46 @@
       </div>
     <% end %>
   </div>
+<% end %>
+
+<%= javascript_tag do %>
+  Spree.fetch_cart()
+
+  var isMobile = {
+    Android: function() {
+    return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+    return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+    return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+    return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+  };
+  $(".w3-button").on("click", function()
+    {
+      
+    var text = $(this).attr("data-message");
+    var phone = $(this).attr("data-number");
+    var message = encodeURIComponent(text);
+
+    if( isMobile.any() ) {
+    //mobile device
+    var whatsapp_API_url = "whatsapp://send";
+    $(this).attr( 'href', whatsapp_API_url+'?phone=' + phone + '&text=' + message );
+    } else {
+    //desktop
+    var whatsapp_API_url = "https://web.whatsapp.com/send";
+    $(this).attr( 'href', whatsapp_API_url+'?phone=' + phone + '&text=' + message );
+    }
+    });
 <% end %>
