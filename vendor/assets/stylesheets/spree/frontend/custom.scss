@@ -71,6 +71,7 @@
 
     // display: list-item;
     @media (max-width: 767px) {
+        display: none;
         text-align: center;
         ul {
 
@@ -95,5 +96,19 @@
 
     @media (max-width: 767px) {
         display: none;
+    }
+}
+
+.nav-mobile {
+    .navbar {
+        display: list-item;
+    }
+    @media (min-width: 768px) {
+        display: none;
+        text-align: center;
+    }
+    ul {
+        display: flex;
+        margin: 7.5px 0;
     }
 }
