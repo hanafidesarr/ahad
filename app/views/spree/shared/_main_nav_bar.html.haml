@@ -1,9 +1,11 @@
 .row
   .col-md-3.text-left
-    %figure#logo.col-md-12
-      -# = image_tag image_path("ahadin.jpeg")
+    = link_to root_path do
+      .icon-image.button-image
+    -# = image_tag image_path("qualia_logo_medium.png"), class: "img-fluid"
   %nav.col-md-9.custom-nav{ style: "padding:0;"}
     #main-nav-bar.navbar
+      -# %i.fa.fa-search
       %ul.nav.navbar-nav{"data-hook" => "", style: "display: flex;"}
         %li#home-link{"data-hook" => ""}= link_to Spree.t(:home), spree.root_path
       %ul.nav.navbar-nav.navbar-right{ style: "margin-right: 16px;"}
