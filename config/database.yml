@@ -2,7 +2,7 @@ development:
   adapter: mysql2
   encoding: utf8
   database: ahad
-  username: root
+  username: 
   password: root
   host: 127.0.0.1
   port: 3306
@@ -12,7 +12,7 @@ test:
   encoding: utf8
   database: ahad
   username: root
-  password: root
+  password: 
   host: 127.0.0.1
   port: 3306
 
@@ -22,6 +22,6 @@ production:
   encoding: utf8
   database: ahad
   username: root
-  password: root
+  password: 
   host: 127.0.0.1
   port: 3306
