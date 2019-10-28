@@ -124,7 +124,10 @@
   }
 
 .product-title {
+    margin-bottom: 3rem;
     @media (max-width: 768px) {
+        margin-bottom: 2rem;
+        font-size: 20px;
         text-align: center;
     }
 }
