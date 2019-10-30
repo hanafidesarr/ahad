@@ -24,5 +24,26 @@
         <%= yield :templates %>
       </div>
     </div>
+    
+    <%= link_to 'javascript:;', class: 'scrollup', "target" => "_blank","data-message" => "Hi! adakah yang bisa kami bantu?", "data-number" => "+6289613834248" do %>
+      <i class="fa fa-whatsapp"></i>
+    <% end %>
+
   </body>
 </html>
+
+<%= javascript_tag do %>
+  $(".scrollup").on("click", function()
+    {
+      var text = $(this).attr("data-message");
+      var phone = $(this).attr("data-number");
+      var message = encodeURIComponent(text);
+
+      var whatsapp_API_url = "whatsapp://send";
+      $(this).attr( 'href', whatsapp_API_url+'?phone=' + phone + '&text=' + message );
+      
+    }
+  );  
+  
+<% end %>
+  
