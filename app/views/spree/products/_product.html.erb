@@ -8,14 +8,17 @@
         <% end %>
         <br/>
       </div>
-      <div class="panel-footer text-center">
+      <div class="panel-footer text-center" style="background-color: white; border-top:none;">
         <span itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-          <%= content_tag(:span, truncate(product.name, length: 25), class: 'info', itemprop: "name", style: "font-size: 14px;", title: product.name) %>
-          <br>
-          <span class="price selling lead" style="font-size:14px !important" itemprop="price" content="<%= (product.price_in(current_currency).amount.nil?)? 0 : product.price_in(current_currency).amount.to_d %>">
+          <span class="price selling lead" style="font-size:16px !important; font-weight: 400" itemprop="price" content="<%= (product.price_in(current_currency).amount.nil?)? 0 : product.price_in(current_currency).amount.to_d %>">
             <%= display_price(product) %>
           </span>
           <span itemprop="priceCurrency" content="<%= current_currency %>"></span>
+          <hr style="margin: 10px 0;">
+          <%= content_tag(:span, truncate(product.name, length: 25), class: 'info', itemprop: "name", style: "font-size: 14px;", title: product.name) %>
+          <br>
+          <%= content_tag(:span, truncate(product.description, length: 45), class: 'info', itemprop: "name", style: "font-size: 12px; color: #aaa;", title: product.name) %>
+          
         </span>
       </div>
     <% end %>
