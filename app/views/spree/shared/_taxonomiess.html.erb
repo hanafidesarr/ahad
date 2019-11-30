@@ -1,0 +1,30 @@
+<% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+
+<nav id="taxonomies" class="sidebar-item" data-hook>
+  <% @taxonomies.each do |taxonomy| %>
+    <% cache [I18n.locale, taxonomy, max_level, @taxon] do %>
+      <% if taxonomy.root.children.any? %>
+        <h4 class='taxonomy-root'><%= Spree.t(:shop_by_taxonomy, taxonomy: taxonomy.name) %></h4>
+        <%#= taxons_tree(taxonomy.root, @taxon, max_level) %>
+				<ul class="list-group">
+					<% taxonomy.root.children.each do |taxon| %>
+						<li class="list-group-item" style="border: none; padding: 0;">
+							<a href="<%= nested_taxons_path(taxon) %>" class=""><%= taxon.name.upcase %></a>
+							<ul class="list-group" style="margin-bottom: 0.5rem;">
+								<% taxon.children.each do |taxon2| %>
+									<li class="list-group-item" style="border: none; padding: 5px 15px;">
+							<a href="<%= nested_taxons_path(taxon2) %>" class=""><%= taxon2.name %></a>
+									</li>
+								<% end %>
+							</ul>
+						</li>
+					<% end %>
+				</ul>
+      <% end %>
+    <% end %>
+  <% end %>
+</nav>
+
+
+
+<%#= @taxonomies.first.root.children.first.children.first.name %>

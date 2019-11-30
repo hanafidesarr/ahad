@@ -15,7 +15,9 @@
       %ul.nav.navbar-nav{"data-hook" => "", style: "display: flex;"}
         %li#home-link{"data-hook" => ""}= link_to Spree.t(:home), spree.root_path
       %ul.nav.navbar-nav.navbar-right{ style: "margin-right: 16px;"}
-        -# %li.lalala
+        %li
+          %a.bouton-image.instagram.instagram-button{style: "cursor:pointer;"}= "Cek instagram kami"
+        
         -#   %a.w3-button{style: "cursor:pointer;", "target" => "_blank","data-message" => "Hi! adakah yang bisa kami bantu?", "data-number" => "+6281222194150"}
         -#   .name= "Silahkan hubungi kami"
         %li
@@ -60,3 +62,6 @@
             $(this).attr( 'href', whatsapp_API_url+'?phone=' + phone + '&text=' + message );
             }
             });
+          $(".instagram-button").on("click", function() {
+            window.open('https://www.instagram.com/ardan_dermawan/', '_blank');
+          })

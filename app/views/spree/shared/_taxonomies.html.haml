@@ -4,4 +4,19 @@
     - cache [I18n.locale, taxonomy, max_level, @taxon] do
       - if taxonomy.root.children.any?
         %h4.taxonomy-root= Spree.t(:shop_by_taxonomy, taxonomy: taxonomy.name)
-        = taxons_tree(taxonomy.root, @taxon, max_level)
+        %ul.list-group
+          - taxonomy.root.children.each do |taxon|
+            #accordionExample.accordion
+              .card
+                #headingOne.card-header
+                  .x{style: "margin: 6px 0; font-size: 16px;"}
+                    = link_to taxon.name , nested_taxons_path(taxon), style: "color: #555;"
+                    - if taxon.children.present?
+                      .fa.fa-angle-double-down{"aria-controls" => "test-#{taxon.id}", "aria-expanded" => "true", "data-target" => ".test-#{taxon.id}", "data-toggle" => "collapse", :type => "button", style: "float: right; margin-top:4px; cursor: pointer;"}
+                        
+              - taxon.children.each do |taxon2|
+                .collapse{"aria-labelledby" => "headingOne", "data-parent" => "#accordionExample", "class" => "test-#{taxon2.parent_id}"}
+                  .card-body
+                    .y{style: "margin: 2px 1rem; font-size: 16px;"}
+                      = link_to taxon2.name , nested_taxons_path(taxon2), style: "color: #555;"
+
