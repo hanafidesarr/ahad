@@ -1,0 +1,40 @@
+/ Footer
+%footer.page-footer.font-small.blue.pt-4
+  / Footer Links
+  .container-fluid.text-center.text-md-left
+    / Grid row
+    .row
+      / Grid column
+      .col-md-6.mt-md-0.mt-3
+        %h5.text-uppercase Footer Content
+        %p Here you can use rows and columns to organize your footer content.
+
+      .col-md-6{style: "padding-top: 2rem;"}
+        .row
+          .col-md-4.mb-md-0.mb-3
+            %a.bouton-image.instagram.instagram-button{style: "cursor:pointer;"}= "Cek instagram kami"
+          
+          .col-md-4.mb-md-0.mb-3
+            %a.bouton-image.facebook.facebook-button{style: "cursor:pointer;"}= "Cek facebook kami"
+          
+          .col-md-4.mb-md-0.mb-3
+            %a.bouton-image.twitter.twitter-button{style: "cursor:pointer;"}= "Cek twitter kami"
+          
+      / Grid column
+    / Grid row
+/ Footer
+:javascript
+  $(".instagram-button").on("click", function() {
+    window.open('https://www.instagram.com/ardan_dermawan/', '_blank');
+  })
+
+  $(".facebook-button").on("click", function() {
+    window.open('https://www.facebook.com/ardan.dermawan', '_blank');
+  })
+
+  $(".twitter-button").on("click", function() {
+    window.open('https://www.twitter.com', '_blank');
+  })
+
+
+  
