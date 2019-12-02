@@ -26,7 +26,9 @@
   $(".btn-fa-nested").click(function(){
     if ($(this).hasClass("fa-rotate-270")) {
       $(this).removeClass("fa-rotate-270")
+      $(this).css("margin-top","4px")
     } else {
       $(this).addClass("fa-rotate-270")
+      $(this).css("margin-top","8px")
     }
   })
