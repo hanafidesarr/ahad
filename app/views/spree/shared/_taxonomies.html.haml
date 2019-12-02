@@ -15,11 +15,18 @@
                     -# %hr{style: "margin-top:2px; margin-bottom:10px; border-top: 2px solid #eeeeee;"}
                     
                     - if taxon.children.present?
-                      .fa.fa-angle-double-down{"aria-controls" => "test-#{taxon.id}", "aria-expanded" => "true", "data-target" => ".test-#{taxon.id}", "data-toggle" => "collapse", :type => "button", style: "float: right; margin-top:4px; cursor: pointer;"}
+                      .fa.btn-fa-nested.fa-angle-double-left{"aria-controls" => "test-#{taxon.id}", "aria-expanded" => "true", "data-target" => ".test-#{taxon.id}", "data-toggle" => "collapse", :type => "button", style: "float: right; margin-top:4px; cursor: pointer; width: 15px; text-align: right;"}
                         
               - taxon.children.each do |taxon2|
                 .collapse{"aria-labelledby" => "headingOne", "data-parent" => "#accordionExample", "class" => "test-#{taxon2.parent_id}"}
                   .card-body
                     .y{style: "margin: 2px 1rem; font-size: 16px; border-bottom: solid 1px #eae4e4; padding-bottom: 1rem;"}
                       = link_to taxon2.name , nested_taxons_path(taxon2), style: "color: #555;"
-
+:javascript
+  $(".btn-fa-nested").click(function(){
+    if ($(this).hasClass("fa-rotate-270")) {
+      $(this).removeClass("fa-rotate-270")
+    } else {
+      $(this).addClass("fa-rotate-270")
+    }
+  })
