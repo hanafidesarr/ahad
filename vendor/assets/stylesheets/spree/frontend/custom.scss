@@ -203,3 +203,30 @@
         border: 1px solid #3f464c;
     }
 }
+
+.slick-prev:before, .slick-next:before {
+    color: white;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+.slick-prev:before {
+    content: "\f053";
+}
+
+.slick-next:before {
+    content: "\f054";
+}
+
+.slick-prev {
+    left: 1rem;
+    z-index: 9999;
+}
+
+.slick-next {
+    right: 1rem;
+    z-index: 9999;
+}
