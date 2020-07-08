@@ -51,7 +51,12 @@
   </div>
 
   </div>
-
+  <div data-hook="admin_product_form_sku">
+    <%= f.field_container :master_sku, class: ['form-group'] do %>
+      <%= f.label :master_sku, Spree.t(:master_sku) %>
+      <%= f.text_field :sku, size: 16, class: 'form-control' %>
+    <% end %>
+  </div>
   <div data-hook="admin_product_form_taxons">
     <%= f.field_container :taxons, class: ['form-group'] do %>
       <%= f.label :taxon_ids, Spree.t(:taxons) %>
